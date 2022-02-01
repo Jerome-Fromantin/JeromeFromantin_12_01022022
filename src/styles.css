@@ -1,0 +1,171 @@
+/* Page "Profile" */
+.whole {
+    width: 1440px;
+    height: 1024px
+}
+
+.underHorizBar {
+    display: flex
+}
+
+.dashboard {
+    width: 1126px;
+    height: 779px;
+    border: 1px blue solid;
+    margin: 68px 90px 86px 107px
+}
+
+.analytics {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 628px;
+    margin-top: 77px
+}
+
+.analyticsLeft, .analyticsRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+.analyticsLeft {
+    width: 835px
+}
+.analyticsRight {
+    width: 258px
+}
+
+.leftDown {
+    display: flex;
+    justify-content: space-between
+}
+
+/* Component "HorizBar" */
+.horizBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    width: 1325px;
+    height: 91px;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0 87px 0 28px
+}
+
+.logo {
+    width: 178px;
+    height: 61px
+}
+
+.horizNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 994px
+}
+
+.horizNavLink:hover {
+    cursor: pointer
+}
+
+/* Component "VerticBar" */
+.verticBar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background: black;
+    width: 117px;
+    height: 933px;
+    color: white
+}
+
+.verticNav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 64px;
+    height: 316px;
+    margin-top: 256px;
+}
+
+.verticNavLink:hover {
+    cursor: pointer
+}
+
+.copyright {
+    width: 138px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 120px;
+    transform: rotate(-90deg)
+}
+
+/* Component "Header" */
+.header {
+    width: 396px;
+    height: 89px
+}
+
+.dashTitle {
+    font-size: 48px;
+    font-weight: 500;
+    margin-top: -16px
+}
+
+.userName {
+    color: red
+}
+
+.dashText {
+    font-size: 18px;
+    font-weight: 400
+}
+
+/* Every analytics component */
+.anaItem {
+    background: #F1F1F1; /*#FBFBFB;*/
+    border: 1px black solid;
+    border-radius: 5px
+}
+
+/* Component "Poids" */
+#poids {
+    width: 835px;
+    height: 320px
+}
+
+/* Components "Objectifs", "Radar", "KPI" */
+#objectifs, #radar, #kpi {
+    width: 258px;
+    height: 263px
+}
+
+/* Components "Calories", "Proteines", "Glucides", "Lipides" */
+#calo, #prot, #gluc, #lipi {
+    display: flex;
+    align-items: center;
+    height: 124px;
+    padding-left: 32px
+}
+
+.anaIcon {
+    width: 60px;
+    height: 60px;
+    margin-right: 24px
+}
+
+.analyticsRightValue {
+    color: #282D30;
+    font-size: 20px;
+    font-weight: 700
+}
+
+.analyticsRightType {
+    color: #74798C;
+    font-size: 14px;
+    font-weight: 500
+}
