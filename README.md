@@ -8,6 +8,9 @@ Travail réalisé :
 - Création de ce fichier Readme.
 - Création de ce repository.
 - Premier upload des fichiers.
+- Installation de la librairie Recharts.
+- Réalisation pour test des premiers graphiques.
 
 Travail à faire :
-- Installation et utilisation de la librairie Recharts.
+- Composer les 4 graphiques de la maquette.
+- Mettre en place le fetch pour récupérer les données dynamiques.
