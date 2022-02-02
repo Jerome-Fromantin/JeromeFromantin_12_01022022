@@ -169,3 +169,20 @@
     font-size: 14px;
     font-weight: 500
 }
+
+/* Composant provisoire */
+.graphTest {
+    width: 1200px;
+    height: 1200px;
+    text-align: center;
+    border: 1px black solid;
+    margin: 50px auto
+}
+
+.graphCenter {
+    margin: 0 auto
+}
+
+.barchatBar {
+    border-radius: 3px 3px 0 0
+}

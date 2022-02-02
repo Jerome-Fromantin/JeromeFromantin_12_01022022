@@ -1,11 +1,13 @@
 //import logo from './logo.svg'
 import './App.css'
 import Profile from './pages/profile'
+import GraphTest from './components/GraphTest'
 
 function App() {
   return (
     <div>
       <Profile/>
+      <GraphTest/>
       {/*<div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
