@@ -6,7 +6,7 @@ function Header() {
             <h1 className="dashTitle">Bonjour <span className="userName">Thomas</span></h1>
             {/* Prévoir {name} à la place de "Thomas". */}
             {/*<p className="dashText">Félicitation ! Vous avez explosé vos objectifs hier</p>*/}
-            <img src={texte} alt="test"/>
+            <img src={texte} alt="Phrase de félicitation"/>
         </header>
     )
 }
