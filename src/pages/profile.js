@@ -6,14 +6,21 @@ import Poids from "../components/Poids"
 import Objectifs from "../components/Objectifs"
 import Radar from "../components/Radar"
 import KPI from "../components/KPI"
-import Calories from "../components/Calories"
-import Proteines from "../components/Proteines"
-import Glucides from "../components/Glucides"
-import Lipides from "../components/Lipides"
+import RightComponent from '../components/RightComponent'
+import caloIcon from '../images/calo-icon.png'
+import protIcon from '../images/prot-icon.png'
+import glucIcon from '../images/gluc-icon.png'
+import lipiIcon from '../images/lipi-icon.png'
 
+// Données pour les composants à droite.
+/*const keyData1 = [
+    {"calorieCount": 1930},
+    {"proteinCount": 155},
+    {"carbohydrateCount": 290},
+    {"lipidCount": 50}
+]*/
 
-
-function Profile() {
+function Profile(props) {
     return (
         <div className="whole">
             <HorizBar/>
@@ -31,10 +38,14 @@ function Profile() {
                             </div>
                         </div>
                         <div className="analyticsRight">
-                            <Calories/>
-                            <Proteines/>
-                            <Glucides/>
-                            <Lipides/>
+                            <RightComponent compoId="calo" iconSrc={caloIcon} iconAlt="Icône calories"
+                            compoValue="1,930kCal" compoType="Calories"/>
+                            <RightComponent compoId="prot" iconSrc={protIcon} iconAlt="Icône protéines"
+                            compoValue="155g" compoType="Protéines"/>
+                            <RightComponent compoId="gluc" iconSrc={glucIcon} iconAlt="Icône glucides"
+                            compoValue="290g" compoType="Glucides"/>
+                            <RightComponent compoId="lipi" iconSrc={lipiIcon} iconAlt="Icône lipides"
+                            compoValue="50g" compoType="Lipides"/>
                         </div>
                     </div>
                 </div>
