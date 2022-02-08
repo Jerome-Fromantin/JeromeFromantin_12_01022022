@@ -4,7 +4,7 @@ import VerticBar from "../components/VerticBar"
 import Header from "../components/Header"
 import Poids from "../components/Poids"
 import Objectifs from "../components/Objectifs"
-import Radar from "../components/Radar"
+import RadarData from "../components/Radar"
 import KPI from "../components/KPI"
 import RightComponent from '../components/RightComponent'
 import caloIcon from '../images/calo-icon.png'
@@ -33,7 +33,7 @@ function Profile(props) {
                             <Poids/>
                             <div className="leftDown">
                                 <Objectifs/>
-                                <Radar/>
+                                <RadarData/>
                                 <KPI/>
                             </div>
                         </div>
