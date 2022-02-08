@@ -10,7 +10,7 @@ Travail réalisé :
 - Premier upload des fichiers.
 - Installation de la librairie Recharts.
 - Réalisation pour test des premiers graphiques.
-- Réalisation partielle de 2 des 4 graphiques avec des données mockées.
+- Réalisation partielle de 3 des 4 graphiques de l'appli avec des données mockées.
 
 Travail à faire :
 - Composer les 4 graphiques de la maquette.
