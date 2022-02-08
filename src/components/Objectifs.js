@@ -45,6 +45,12 @@ const sessions2 = [
     }
 ]
 
+const days = {1: "L", 2: "M", 3: "M", 4: "J", 5: "V", 6: "S", 7: "D"}
+
+const getDayLetter = (index) => {
+    return days[index]
+}
+
 const tooltip = {
     background: "white",
     color: "black"
@@ -61,7 +67,8 @@ function Objectifs() {
             className="graphCenter">
                 <Line type="monotone" dataKey="sessionLength" dot={false} stroke="white"/>
                 <CartesianGrid horizontal={false} vertical={false}/>
-                <XAxis dataKey="day" axisLine={false} padding={{left: 10, right: 10}} stroke="white" tickLine={false} tickMargin={15}/>
+                <XAxis dataKey="day" axisLine={false} padding={{left: 10, right: 10}} stroke="white"
+                tickFormatter={getDayLetter} tickLine={false} tickMargin={15}/>
                 <YAxis axisLine={false} mirror={true} tickCount={0} tickLine={false}/>
                 <Tooltip allowEscapeViewBox={{x: true, y: true}} contentStyle={tooltip} itemStyle={tooltipValues} offset={30}/>
             </LineChart>

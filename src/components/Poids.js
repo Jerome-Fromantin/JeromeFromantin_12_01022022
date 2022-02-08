@@ -53,10 +53,10 @@ const sessions2 = [
     }
 ]
 
-/*const legend = {
-    fontSize: 14,
-    fontWeight: 500
-}*/
+const getDayNumber = (date) => {
+    const dayNumber = new Date(date);
+    return dayNumber.getDate()
+}
 
 const tooltip = {
     background: "#E60000",
@@ -94,7 +94,8 @@ function Poids() {
             <BarChart width={805} height={320} data={sessions1} barGap={8} barSize={7}
             margin={{top: 90, right: 0, bottom: 25, left: 33}} className="graphCenter">
                 <CartesianGrid strokeDasharray="2" vertical={false}/>
-                <XAxis dataKey="day" axisLine={false} padding={{left: -49, right: -49}} tickLine={false} tickMargin={15}/>
+                <XAxis dataKey="day" axisLine={false} padding={{left: -49, right: -49}}
+                tickFormatter={getDayNumber} tickLine={false} tickMargin={15}/>
                 <Tooltip /*content={customTooltip}*/ contentStyle={tooltip} itemStyle={tooltipValues} offset={30}/>
                 <YAxis yAxisId="left" axisLine={false} domain={["dataMin - 1", "dataMax"]} orientation="right" tickCount={3} tickLine={false} tickMargin={25}/>
                 <YAxis yAxisId="right" axisLine={false} domain={["dataMin - 10", "dataMax"]} mirror={true} tickCount={0} tickLine={false}/>
