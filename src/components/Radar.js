@@ -60,9 +60,9 @@ function RadarData() {
     return (
         <div id="radar" className="anaItem">
             <RadarChart width={250} height ={250} data={data1} startAngle={90} endAngle={450}
-            margin={{top: 40, right: 40, bottom: 40, left: 40}} className="graphCenter">
+            margin={{top: 15, right: 15, bottom: 15, left: 15}} className="graphCenter">
                 <PolarGrid/> {/*polarAngles={[90, 150, 210, 270, 330, 390, 450]}/>*/}
-                <PolarAngleAxis dataKey="kind" tickFormatter={getTheme} tickLine={false} stroke="white"/>
+                <PolarAngleAxis dataKey="kind" fontSize={12} tickFormatter={getTheme} tickLine={false} stroke="white"/>
                 <Radar dataKey="value" fill="rgb(255, 1, 1)" fillOpacity={0.7}/>
             </RadarChart>
         </div>
