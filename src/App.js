@@ -1,31 +1,23 @@
-//import logo from './logo.svg'
-import './App.css'
-import Profile from './pages/profile'
-import GraphTest from './components/GraphTest'
+import "./App.css"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Layout from "./components/Layout"
+import Profile from "./pages/profile"
+//import GraphTest from "./components/GraphTest"
 
 function App() {
   return (
     <div>
-      <Profile/>
-      <GraphTest/>
-      {/*<div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>*/}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route path=":id" element={<Profile/>}/>
+            {/*<Route path="*" element={<Page404/>}/>*/}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      {/*<GraphTest/>*/}
     </div>
   );
 }
 
-export default App;
+export default App
