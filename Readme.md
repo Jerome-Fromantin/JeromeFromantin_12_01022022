@@ -10,8 +10,10 @@ Travail réalisé :
 - Premier upload des fichiers.
 - Installation de la librairie Recharts.
 - Réalisation pour test des premiers graphiques.
-- Réalisation partielle de 3 des 4 graphiques de l'appli avec des données mockées.
+- Installation du routeur et de ses routes.
+- Réalisation complète du 1er graphique avec les données réelles.
+- Réalisation partielle des 3 autres graphiques de l'appli avec des données mockées.
 
 Travail à faire :
-- Composer les 4 graphiques de la maquette.
-- Mettre en place le fetch pour récupérer les données dynamiques.
+- Terminer les 4 graphiques de la maquette.
+- Améliorer la documentation de l'application.
