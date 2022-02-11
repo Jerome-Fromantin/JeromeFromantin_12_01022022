@@ -6,7 +6,7 @@ const USER_MAIN_DATA = [
             lastName: 'Dovineau',
             age: 31,
         },
-        todayScore: 0.12,
+        score: 0.12, /* Originellement appelé "todayScore" */
         keyData: {
             calorieCount: 1930,
             proteinCount: 155,
@@ -114,7 +114,6 @@ const USER_ACTIVITY = [
     }
 ]
 
-
 const USER_AVERAGE_SESSIONS = [
     {
         userId: 12,
@@ -183,7 +182,6 @@ const USER_AVERAGE_SESSIONS = [
         ]
     }
 ]
-
 
 const USER_PERFORMANCE = [
     {
@@ -261,8 +259,6 @@ const USER_PERFORMANCE = [
         ]
     }
 ]
-
-
 
 module.exports = {
     USER_MAIN_DATA,
