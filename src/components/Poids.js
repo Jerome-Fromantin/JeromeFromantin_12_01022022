@@ -10,6 +10,7 @@ const getDayNumber = (date) => {
     return dayNumber.getDate()
 }
 
+/* This function gives to the tooltip a customized content with its own style. */
 const customTooltip = ({active, payload}) => {
     if (active && payload && payload.length) {
         return (
@@ -51,10 +52,12 @@ function Poids(props) {
                 <XAxis dataKey="day" axisLine={false} padding={{left: -49, right: -49}}
                 tickFormatter={getDayNumber} tickLine={false} tickMargin={15}/>
                 <Tooltip content={customTooltip} offset={30}/>
-                <YAxis yAxisId="left" axisLine={false} domain={["dataMin - 1", "dataMax"]} orientation="right" tickCount={3} tickLine={false} tickMargin={25}/>
-                <YAxis yAxisId="right" axisLine={false} domain={["dataMin - 10", "dataMax"]} mirror={true} tickCount={0} tickLine={false}/>
-                <Bar yAxisId="left" dataKey="kilogram" fill="#282D30"/>
-                <Bar yAxisId="right" dataKey="calories" fill="#E60000"/>
+                <YAxis yAxisId="left" axisLine={false} domain={["dataMin - 2", "dataMax + 1"]} orientation="right"
+                tickCount={3} tickLine={false} tickMargin={25}/>
+                <YAxis yAxisId="right" axisLine={false} domain={["dataMin - 10", "dataMax + 10"]} mirror={true}
+                tickCount={0} tickLine={false}/>
+                <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" radius={[43, 43, 0, 0]}/>
+                <Bar yAxisId="right" dataKey="calories" fill="#E60000" radius={[43, 43, 0, 0]}/>
             </BarChart>
             <div className="poidsTitleLegend">
                 <div>Activité quotidienne</div>
