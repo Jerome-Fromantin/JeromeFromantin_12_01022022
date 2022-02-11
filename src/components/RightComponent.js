@@ -1,5 +1,3 @@
-// VOIR "data.js" pour les données complètes.
-
 function RightComponent(props) {
     return (
         <div id={props.compoId} className="anaItem">
