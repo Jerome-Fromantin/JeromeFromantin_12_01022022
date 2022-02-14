@@ -9,13 +9,10 @@ function KPI(props) {
     useEffect(() => {
         async function init() {
             const oneScore = await getScore(props.id)
-            console.log(oneScore)
             setScore(oneScore)
         }
         init()
     }, [props.id])
-
-    console.log(userScore.score)
 
     const innerScore = [{score: 1, fill: "white"}]
     const fullScore = [{score: userScore.score, fill: "#FF0000"}, {score: 1, fill: "transparent"}]
