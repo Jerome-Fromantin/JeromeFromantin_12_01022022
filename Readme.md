@@ -11,9 +11,9 @@ Travail réalisé :
 - Installation de la librairie Recharts.
 - Réalisation pour test des premiers graphiques.
 - Installation du routeur et de ses routes.
-- Réalisation complète des 3 premiers graphiques avec les données mockées.
-- Avancement des autres graphiques de l'appli avec les données mockées.
+- Réalisation complète de 3 des 4 graphiques avec les données mockées.
+- Ajout d'un tooltip à améliorer sur le 3ème graphique de l'appli.
 
 Travail à faire :
-- Terminer les graphiques de la maquette.
+- Améliorer le tootltip du graphique.
 - Améliorer la documentation de l'application.
