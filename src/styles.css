@@ -131,7 +131,7 @@
 }
 
 .graphCenter {
-    margin: 0 auto
+    margin: auto
 }
 
 /* Component "Poids" */
@@ -154,6 +154,8 @@
 
 /* Components "Objectifs", "Radar", "KPI" */
 #objectifs, #radar, #kpi {
+    display: flex;
+    align-items: center;
     width: 258px;
     height: 263px
 }
@@ -178,6 +180,35 @@
 #radar {
     background: #282D30;
     color: white
+}
+
+/* Component "KPI" */
+#kpi {
+    position: relative
+}
+
+.kpiTitle {
+    position: absolute;
+    top: 24px;
+    left: 30px;
+    font-size: 15px;
+    font-weight: 500
+}
+
+.kpiCenterText {
+    position: absolute;
+    top: 107px;
+    left: 81px;
+    width: 96px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center
+}
+
+.kpiCenterScore {
+    font-size: 26px;
+    font-weight: 700
 }
 
 /* Components "RightComponent" */

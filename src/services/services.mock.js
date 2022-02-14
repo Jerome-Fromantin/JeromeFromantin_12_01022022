@@ -22,7 +22,7 @@ export async function getPerformanceData(userId) {
 
 export async function getScore(id) {
     const userScore = USER_MAIN_DATA.find(item => item.id == id)
-    return userScore.score
+    return userScore
 }
 
 export async function getKeyData(id) {

@@ -1,27 +1,37 @@
-//import { useEffect, useState } from 'react'
-//import { getScore } from '../services/services.mock'
+import { useEffect, useState } from 'react'
+import { getScore } from '../services/services.mock'
 //import { getScore } from '../services/services'
 import {PieChart, Pie} from 'recharts'
 
-const score1 = [{score: 0.12}, {score: 0.88}]
-//const score2 = [{score: 0.3}, {score: 0.7}]
-
 function KPI(props) {
-    /*const [score, setScore] = useState([0])
+    const [userScore, setScore] = useState([])
 
     useEffect(() => {
         async function init() {
-            const userScore = await getScore(props.id)
-            setScore(userScore)
+            const oneScore = await getScore(props.id)
+            console.log(oneScore)
+            setScore(oneScore)
         }
         init()
-    }, [props.id])*/
+    }, [props.id])
+
+    console.log(userScore.score)
+
+    const innerScore = [{score: 1, fill: "white"}]
+    const fullScore = [{score: userScore.score, fill: "#FF0000"}, {score: 1, fill: "transparent"}]
 
     return (
         <div id="kpi" className="anaItem">
-            <PieChart width={250} height={250}>
-                <Pie data={score1} dataKey="score" cx="50%" cy="50%" innerRadius={70} outerRadius={80} fill="#FF0000"/>
+            <PieChart cx="50%" cy="50%" width={250} height={250} className="graphCenter">
+                <Pie data={innerScore} dataKey="score" clockwise={false} outerRadius={90}
+                startAngle={90} endAngle={450}/>
+                <Pie data={fullScore} dataKey="score" clockwise={false} cornerRadius="50%"
+                innerRadius={90} outerRadius={100} startAngle={90} endAngle={450}/>
             </PieChart>
+            <div className="kpiTitle">Score</div>
+            <div className="kpiCenterText">
+                <span className="kpiCenterScore">{userScore.score * 100}%</span><br/>de votre<br/>objectif
+            </div>
         </div>
     )
 }
