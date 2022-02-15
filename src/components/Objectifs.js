@@ -30,11 +30,15 @@ function Objectifs(props) {
     const [objectifsData, setObjectifsData] = useState([])
 
     useEffect(() => {
+        let abortController = new AbortController()
         async function init() {
             const sessions = await getObjectifsData(props.id)
             setObjectifsData(sessions)
         }
         init()
+        return () => {
+            abortController.abort()
+        }
     }, [props.id])
 
     return (

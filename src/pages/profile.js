@@ -1,7 +1,7 @@
 import "../styles.css"
 import { useEffect, useState } from 'react'
-import { getKeyData } from '../services/services.mock'
-//import { getKeyData } from '../services/services'
+import { getMainData } from '../services/services.mock'
+//import { getMainData } from '../services/services'
 import {useParams} from "react-router-dom"
 import Header from "../components/Header"
 import Poids from "../components/Poids"
@@ -15,15 +15,23 @@ import glucIcon from "../images/gluc-icon.png"
 import lipiIcon from "../images/lipi-icon.png"
 
 function Profile(props) {
-    const [keyData, setKeyData] = useState([])
+    const [mainData, setMainData] = useState([])
 
     useEffect(() => {
+        let abortController = new AbortController()
         async function init() {
-            const rightCompData = await getKeyData(props.id)
-            setKeyData(rightCompData)
+            const mainDatas = await getMainData(props.id)
+            setMainData(mainDatas)
         }
         init()
+        return () => {
+            abortController.abort()
+        }
     }, [props.id])
+
+    //console.log(mainData.keyData)
+    //const userInfo = mainData.userInfos
+    //console.log(userInfo)
 
     const param = useParams()
 
@@ -40,12 +48,14 @@ function Profile(props) {
                     </div>
                 </div>
                 <div className="analyticsRight">
-                    {keyData.calorieCount ?
+                    {/*{mainData.calorieCount ?
                         <RightComponent id={param.id} compoId="calo" iconSrc={caloIcon} iconAlt="Icône calories"
-                        compoValue={`${keyData.calorieCount}kCal`} compoType="Calories"/> :
+                        compoValue={`${mainData.calorieCount}kCal`} compoType="Calories"/> :
                         <RightComponent id={param.id} compoId="calo" iconSrc={caloIcon} iconAlt="Icône calories"
                         compoValue="000kCal" compoType="Calories"/>
-                    }
+                    }*/}
+                    <RightComponent id={param.id} compoId="calo" iconSrc={caloIcon} iconAlt="Icône calories"
+                    compoValue={mainData} compoType="Calories"/>
                     <RightComponent compoId="prot" iconSrc={protIcon} iconAlt="Icône protéines"
                     compoValue="155g" compoType="Protéines"/>
                     <RightComponent compoId="gluc" iconSrc={glucIcon} iconAlt="Icône glucides"

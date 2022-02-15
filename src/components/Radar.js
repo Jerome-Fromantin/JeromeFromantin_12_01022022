@@ -30,11 +30,15 @@ function RadarData(props) {
     const [performanceData, setPerformanceData] = useState([])
 
     useEffect(() => {
+        let abortController = new AbortController()
         async function init() {
             const perfData = await getPerformanceData(props.id)
             setPerformanceData(perfData)
         }
         init()
+        return () => {
+            abortController.abort()
+        }
     }, [props.id])
 
     const performanceDataReverse = [...performanceData].sort((a, b) => b.kind - a.kind)

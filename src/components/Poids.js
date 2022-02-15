@@ -37,11 +37,15 @@ function Poids(props) {
     const [poidsData, setPoidsData] = useState([])
 
     useEffect(() => {
+        let abortController = new AbortController()
         async function init() {
             const sessions = await getPoidsData(props.id)
             setPoidsData(sessions)
         }
         init()
+        return () => {
+            abortController.abort()
+        }
     }, [props.id])
 
     return (

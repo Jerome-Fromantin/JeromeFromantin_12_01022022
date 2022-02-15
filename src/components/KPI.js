@@ -7,11 +7,15 @@ function KPI(props) {
     const [userScore, setScore] = useState([])
 
     useEffect(() => {
+        let abortController = new AbortController()
         async function init() {
             const oneScore = await getScore(props.id)
             setScore(oneScore)
         }
         init()
+        return () => {
+            abortController.abort()
+        }
     }, [props.id])
 
     const innerScore = [{score: 1, fill: "white"}]
