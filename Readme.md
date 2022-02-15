@@ -13,7 +13,9 @@ Travail réalisé :
 - Installation du routeur et de ses routes.
 - Réalisation complète de 3 des 4 graphiques avec les données mockées.
 - Ajout d'un tooltip à améliorer sur le 3ème graphique de l'appli.
+- Ajout de plusieurs AbortControllers pour empêcher les "memory leaks".
 
 Travail à faire :
 - Améliorer le tootltip du graphique.
+- Améliorer l'accès aux données "réelles".
 - Améliorer la documentation de l'application.
