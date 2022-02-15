@@ -1,8 +1,9 @@
 import {USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE} from "./data"
 
-export async function getFirstName(id) {
-    const firstName = USER_MAIN_DATA.find(item => item.id == id)
-    return firstName.userInfos
+export async function getMainData(id) {
+    const mainData = USER_MAIN_DATA.find(item => item.id == id)
+    console.log(mainData)
+    return mainData
 }
 
 export async function getPoidsData(userId) {
@@ -23,9 +24,4 @@ export async function getPerformanceData(userId) {
 export async function getScore(id) {
     const userScore = USER_MAIN_DATA.find(item => item.id == id)
     return userScore
-}
-
-export async function getKeyData(id) {
-    const rightCompData = USER_MAIN_DATA.find(item => item.id == id)
-    return rightCompData.keyData
 }
