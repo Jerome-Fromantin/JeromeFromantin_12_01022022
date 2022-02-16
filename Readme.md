@@ -11,11 +11,13 @@ Travail réalisé :
 - Installation de la librairie Recharts.
 - Réalisation pour test des premiers graphiques.
 - Installation du routeur et de ses routes.
-- Réalisation complète de 3 des 4 graphiques avec les données mockées.
-- Ajout d'un tooltip à améliorer sur le 3ème graphique de l'appli.
+- Réalisation complète des 4 graphiques.
 - Ajout de plusieurs AbortControllers pour empêcher les "memory leaks".
+- Accès aux données mockées comme aux données réelles.
 
 Travail à faire :
-- Améliorer le tootltip du graphique.
-- Améliorer l'accès aux données "réelles".
-- Améliorer la documentation de l'application.
+- Continuer l'ajout de documentation anglaise pour l'application.
+- Traduire en anglais ce fichier Readme et l'améliorer.
+
+NOTE POUR MOI-MEME :
+Pour démarrer le backend, taper "npm run dev".
