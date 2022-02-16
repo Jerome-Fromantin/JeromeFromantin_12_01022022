@@ -2,8 +2,12 @@ import "./App.css"
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Layout from "./components/Layout"
 import Profile from "./pages/profile"
-//import GraphTest from "./components/GraphTest"
 
+/**
+ * This function contains the logic of the router, with a parent route for the layout
+ * and a child route for the "profile page" displayed in this project.
+ * @function App
+ */
 function App() {
   return (
     <div>
@@ -11,11 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path=":id" element={<Profile/>}/>
-            {/*<Route path="*" element={<Page404/>}/>*/}
           </Route>
         </Routes>
       </BrowserRouter>
-      {/*<GraphTest/>*/}
     </div>
   );
 }
