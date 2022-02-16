@@ -1,41 +1,22 @@
 import { useEffect, useState } from 'react'
-import { getPoidsData } from '../services/services.mock'
-//import { getPoidsData } from '../services/services'
+
+/* ACCESS TO DATA */
+// Access to mocked data in the file "src/services/data.js"
+//import { getPoidsData } from '../services/services.mock'
+
+// Access to "real" data in the backend API
+import { getPoidsData } from '../services/services'
+
+// ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
 import {BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts'
+
+// Picture for the legend of the chart, identical to every data
 import barchartLegend from '../images/barchartLegend.png'
-
-/* This function gets the number of the day, to be used in the X axis of the chart. */
-const getDayNumber = (date) => {
-    const dayNumber = new Date(date);
-    return dayNumber.getDate()
-}
-
-/* This function gives to the tooltip a customized content with its own style. */
-const customTooltip = ({active, payload}) => {
-    if (active && payload && payload.length) {
-        return (
-            <div style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            background: "#E60000",
-            height: 63,
-            color: "white",
-            fontSize: 10,
-            fontWeight: 500,
-            textAlign: "center",
-            padding: 5}}>
-                <p>{`${payload[0].value} kg`}</p>
-                <p>{`${payload[1].value} kCal`}</p>
-            </div>
-        )
-    }
-    return null
-}
 
 function Poids(props) {
     const [poidsData, setPoidsData] = useState([])
 
+    // Use of "AbortController()" to prevent memory leaks
     useEffect(() => {
         let abortController = new AbortController()
         async function init() {
@@ -47,6 +28,40 @@ function Poids(props) {
             abortController.abort()
         }
     }, [props.id])
+
+    /**
+     * This function gets the number of the day from the corresponding data, to be used in the X axis of the chart.
+     */
+    const getDayNumber = (date) => {
+        const dayNumber = new Date(date);
+        return dayNumber.getDate()
+    }
+
+    /**
+     * This function gives to the tooltip (visible when the user hovers on the chart) a customized style for its content,
+     * which is the values of the data with their units.
+     */
+    const customTooltip = ({active, payload}) => {
+        if (active && payload && payload.length) {
+            return (
+                <div style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: "#E60000",
+                height: 63,
+                color: "white",
+                fontSize: 10,
+                fontWeight: 500,
+                textAlign: "center",
+                padding: 5}}>
+                    <p>{`${payload[0].value} kg`}</p>
+                    <p>{`${payload[1].value} kCal`}</p>
+                </div>
+            )
+        }
+        return null
+    }
 
     return (
         <div id="poids" className="anaItem">
