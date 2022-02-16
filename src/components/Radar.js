@@ -1,39 +1,40 @@
 import { useEffect, useState } from 'react'
-import { getPerformanceData } from '../services/services.mock'
-//import { getPerformanceData } from '../services/services'
+//import { getPerformanceData } from '../services/services.mock'
+import { getPerformanceData } from '../services/services'
 import {RadarChart, Radar, PolarGrid, PolarAngleAxis, Tooltip} from 'recharts'
-
-const kindFR = {1: "Cardio", 2: "Energie", 3: "Endurance", 4: "Force", 5: "Vitesse", 6: "Intensité"}
-const getTheme = (index) => {
-    return kindFR[index]
-}
-
-/* This function gives to the tooltip a customized content with its own style. */
-const customTooltip = ({active, payload}) => {
-    if (active && payload && payload.length) {
-        return (
-            <div style={{
-            background: "white",
-            color: "black",
-            fontSize: 10,
-            fontWeight: 500,
-            textAlign: "center",
-            padding: 5}}>
-                <p>{`${payload[0].kind} : ${payload[0].value}`}</p>
-            </div>
-        )
-    }
-    return null
-}
 
 function RadarData(props) {
     const [performanceData, setPerformanceData] = useState([])
+    const [kinds, setKinds] = useState({})
+
+    /* This function gives to the tooltip a customized content with its own style. */
+    const customTooltip = ({active, payload}) => {
+        if (active && payload && payload.length) {
+            return (
+                <div style={{
+                background: "white",
+                color: "black",
+                fontSize: 10,
+                fontWeight: 500,
+                textAlign: "center",
+                padding: 5}}>
+                    <p>{`${kinds[payload[0].payload.kind]} : ${payload[0].value}`}</p>
+                </div>
+            )
+        }
+        return null
+    }
+
+    const getTheme = (index) => {
+        return kinds[index]
+    }
 
     useEffect(() => {
         let abortController = new AbortController()
         async function init() {
             const perfData = await getPerformanceData(props.id)
-            setPerformanceData(perfData)
+            setPerformanceData(perfData.data)
+            setKinds(perfData.kind)
         }
         init()
         return () => {

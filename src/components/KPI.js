@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
-import { getScore } from '../services/services.mock'
-//import { getScore } from '../services/services'
+//import { getMainData } from '../services/services.mock'
+import { getMainData } from '../services/services'
+import Formatter from '../services/formatter'
 import {PieChart, Pie} from 'recharts'
 
 function KPI(props) {
-    const [userScore, setScore] = useState([])
+    const [userScore, setScore] = useState(0)
 
     useEffect(() => {
         let abortController = new AbortController()
         async function init() {
-            const oneScore = await getScore(props.id)
-            setScore(oneScore)
+            const mainData = await getMainData(props.id)
+            const formatter = new Formatter(mainData)
+            setScore(formatter.getScore())
         }
         init()
         return () => {
@@ -19,7 +21,7 @@ function KPI(props) {
     }, [props.id])
 
     const innerScore = [{score: 1, fill: "white"}]
-    const fullScore = [{score: userScore.score, fill: "#FF0000"}, {score: 1, fill: "transparent"}]
+    const fullScore = [{score: userScore, fill: "#FF0000"}, {score: 1, fill: "transparent"}]
 
     return (
         <div id="kpi" className="anaItem">
@@ -31,7 +33,7 @@ function KPI(props) {
             </PieChart>
             <div className="kpiTitle">Score</div>
             <div className="kpiCenterText">
-                <span className="kpiCenterScore">{userScore.score * 100}%</span><br/>de votre<br/>objectif
+                <span className="kpiCenterScore">{userScore * 100}%</span><br/>de votre<br/>objectif
             </div>
         </div>
     )
