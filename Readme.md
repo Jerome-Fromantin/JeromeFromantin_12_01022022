@@ -11,12 +11,13 @@ Travail réalisé :
 - Installation de la librairie Recharts.
 - Réalisation pour test des premiers graphiques.
 - Installation du routeur et de ses routes.
-- Réalisation complète des 4 graphiques.
+- Réalisation complète des 4 graphiques : BarChart, LineChart, RadarChart, RadialBarChart.
 - Ajout de plusieurs AbortControllers pour empêcher les "memory leaks".
 - Accès aux données mockées comme aux données réelles.
+- Ajout de documentation anglaise sur tous les composants importants.
 
 Travail à faire :
-- Continuer l'ajout de documentation anglaise pour l'application.
+- Terminer l'amélioration en cours du graphique "Radar".
 - Traduire en anglais ce fichier Readme et l'améliorer.
 
 NOTE POUR MOI-MEME :
