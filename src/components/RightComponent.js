@@ -1,3 +1,5 @@
+// This component is used in the file "profile.js" to display the 4 little blocks on the right of the screen,
+// each with its own icon, value and type through the use of props.
 function RightComponent(props) {
     return (
         <div id={props.compoId} className="anaItem">
