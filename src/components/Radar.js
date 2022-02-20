@@ -1,13 +1,64 @@
 import { useEffect, useState } from 'react'
+
+/* ACCESS TO DATA */
+// Access to mocked data in the file "src/services/data.js"
 //import { getPerformanceData } from '../services/services.mock'
+
+// Access to "real" data in the backend API
 import { getPerformanceData } from '../services/services'
+
+// ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
 import {RadarChart, Radar, PolarGrid, PolarAngleAxis, Tooltip} from 'recharts'
 
 function RadarData(props) {
     const [performanceData, setPerformanceData] = useState([])
     const [kinds, setKinds] = useState({})
 
-    /* This function gives to the tooltip a customized content with its own style. */
+    // Use of "AbortController()" to prevent memory leaks
+    useEffect(() => {
+        let abortController = new AbortController()
+        async function init() {
+            const perfData = await getPerformanceData(props.id)
+            setPerformanceData(perfData.data)
+            setKinds(perfData.kind)
+        }
+        init()
+        return () => {
+            abortController.abort()
+        }
+    }, [props.id])
+
+    // This reverses the order of the data, to get it from last to first.
+    const performanceDataReverse = [...performanceData].sort((a, b) => b.kind - a.kind)
+
+    /**
+     * FUNCTION TO IMPROVE BECAUSE PROVOKING BUGS !
+     * This function, when used with the following one, takes the strings in "kinds"
+     * and puts in capital the first letter of each string.
+     * @function capitalFirstLetter
+     * @param {string} str : The string to transform.
+     * @returns The same string with a capital letter.
+     */
+    /*const capitalFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1)
+        //return str[0].toUpperCase() + str.slice(1)
+    }*/
+
+    /**
+     * This function gets the names of the data coming from the hook "useEffect()" in "setKinds()".
+     * @param {index} index 
+     * @returns 
+     */
+    const getTheme = (index) => {
+        /*const capKinds = capitalFirstLetter(kinds[index])
+        return capKinds*/
+        return kinds[index]
+    }
+
+    /**
+     * This function gives to the tooltip (visible when the user hovers on the chart) a customized style for its content,
+     * which is the names and the values of the data.
+     */
     const customTooltip = ({active, payload}) => {
         if (active && payload && payload.length) {
             return (
@@ -25,29 +76,10 @@ function RadarData(props) {
         return null
     }
 
-    const getTheme = (index) => {
-        return kinds[index]
-    }
-
-    useEffect(() => {
-        let abortController = new AbortController()
-        async function init() {
-            const perfData = await getPerformanceData(props.id)
-            setPerformanceData(perfData.data)
-            setKinds(perfData.kind)
-        }
-        init()
-        return () => {
-            abortController.abort()
-        }
-    }, [props.id])
-
-    const performanceDataReverse = [...performanceData].sort((a, b) => b.kind - a.kind)
-
     return (
         <div id="radar" className="anaItem">
             <RadarChart width={250} height ={250} data={performanceDataReverse}
-            margin={{top: 15, right: 15, bottom: 15, left: 15}} className="graphCenter">
+            margin={{top: 20, right: 20, bottom: 20, left: 20}} className="graphCenter">
                 <PolarGrid radialLines={false}/>
                 <PolarAngleAxis dataKey="kind" fontSize={12} tickFormatter={getTheme} tickLine={false} stroke="white"/>
                 <Radar dataKey="value" fill="rgb(255, 1, 1)" fillOpacity={0.7}/>
