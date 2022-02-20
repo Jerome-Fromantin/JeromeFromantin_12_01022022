@@ -1,8 +1,6 @@
 # Installation of this project
-***
 
 ## Prerequisites
-***
 
 - NodeJS version 14.17.0 or higher.
 - Npm version 6.14.13 or higher.
@@ -15,39 +13,30 @@
 
 
 ## How to install
-***
 
 ### Use of the back-end API
-- Aaa.
-- Bbb.
-- Ccc.
+- Create a folder anywhere you want in your computer.
+- In that folder, clone the back-end API with the terminal instruction :
+    git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+- Install the packages or dependencies : npm install
+- Run the back-end API : npm run dev
+- The message "Magic happens on port 3000" will appear.
 
 ### Use of the front-end application
-- Ddd.
-- Eee.
-- Fff.
+- In the same folder you created before, make a second clone with the front-end application :
+    git clone https://github.com/Jerome-Fromantin/JeromeFromantin_12_01022022.git
+- Install the packages or dependencies : npm install
+- Run the front-end application : npm start
+- By default, it will want to use the port 3000. So, this message will appear :
+    ? Something is already running on port 3000.
+    Would you like to run the app on another port instead? >> (Y/n)
+- Press the key "y".
+- The application will then run on "localhost:3001".
 
-Ce travail est réalisé dans le cadre de la formation "Développeur JavaScript React" (anciennement "Développeur d'applications front-end") d'OpenClassrooms.
+**But don't Forget !**
+The process just above will only display in the page the elements identical to every user.
 
-Ce projet 12 consiste en la création et le développement d'une application React utilisant la librairie Recharts.
+To access a user's data, you must add his id at the end of the url.
+2 ids are accessible here, "12" and "18" so the final urls will be "localhost:3001/12" or "localhost:3001/18".
 
-Travail réalisé :
-- Initialisation du projet.
-- Intégration quasi-complète en statique de la page et de ses composants.
-- Création de ce fichier Readme.
-- Création de ce repository.
-- Premier upload des fichiers.
-- Installation de la librairie Recharts.
-- Réalisation pour test des premiers graphiques.
-- Installation du routeur et de ses routes.
-- Réalisation complète des 4 graphiques : BarChart, LineChart, RadarChart, RadialBarChart.
-- Ajout de plusieurs AbortControllers pour empêcher les "memory leaks".
-- Accès aux données mockées comme aux données réelles.
-- Ajout de documentation anglaise sur tous les composants importants.
-- Création d'un fichier Readme "officiel" en anglais.
-
-Travail à faire :
-- Terminer l'amélioration en cours du graphique "Radar".
-
-NOTE POUR MOI-MEME :
-Pour démarrer le backend, taper "npm run dev".
+***Enjoy the visit !***
