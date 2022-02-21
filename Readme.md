@@ -1,5 +1,7 @@
 # Installation of this project
 
+Last update : 21/02/2022 - 5:30 PM (French Time)
+
 ## Prerequisites
 
 - NodeJS version 14.17.0 or higher.
