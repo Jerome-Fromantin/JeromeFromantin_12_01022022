@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { getPerformanceData } from '../services/services'
 
 // ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
-import {RadarChart, Radar, PolarGrid, PolarAngleAxis, Tooltip} from 'recharts'
+import {RadarChart, Radar, PolarGrid, PolarAngleAxis, Tooltip, ResponsiveContainer} from 'recharts'
 
 function RadarData(props) {
     const [performanceData, setPerformanceData] = useState([])
@@ -16,16 +16,16 @@ function RadarData(props) {
 
     // Use of "AbortController()" to prevent memory leaks
     useEffect(() => {
-        let abortController = new AbortController()
+        //let abortController = new AbortController()
         async function init() {
             const perfData = await getPerformanceData(props.id)
             setPerformanceData(perfData.data)
             setKinds(perfData.kind)
         }
         init()
-        return () => {
+        /*return () => {
             abortController.abort()
-        }
+        }*/
     }, [props.id])
 
     // This reverses the order of the data, to get it from last to first.
@@ -78,14 +78,16 @@ function RadarData(props) {
 
     return (
         <div id="radar" className="anaItem">
-            <RadarChart width={250} height ={250} data={performanceDataReverse}
-            margin={{top: 20, right: 20, bottom: 20, left: 20}} className="graphCenter">
-                <PolarGrid radialLines={false}/>
-                <PolarAngleAxis dataKey="kind" fontSize={12} tickFormatter={getTheme} tickLine={false} stroke="white"/>
-                <Radar dataKey="value" fill="rgb(255, 1, 1)" fillOpacity={0.7}/>
-                <Tooltip content={customTooltip}
-                cursor={{stroke: "white", strokeOpacity : 0.2, strokeWidth: 10}} offset={30}/>
-            </RadarChart>
+            <ResponsiveContainer width="97%" height={263}>
+                <RadarChart data={performanceDataReverse} margin={{top: 33, right: 33, bottom: 33, left: 33}}
+                className="graphCenter">
+                    <PolarGrid radialLines={false}/>
+                    <PolarAngleAxis dataKey="kind" fontSize={12} tickFormatter={getTheme} tickLine={false} stroke="white"/>
+                    <Radar dataKey="value" fill="rgb(255, 1, 1)" fillOpacity={0.7}/>
+                    <Tooltip content={customTooltip}
+                    cursor={{stroke: "white", strokeOpacity : 0.2, strokeWidth: 10}} offset={30}/>
+                </RadarChart>
+            </ResponsiveContainer>
         </div>
     )
 }

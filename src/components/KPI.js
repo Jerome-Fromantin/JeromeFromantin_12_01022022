@@ -11,7 +11,7 @@ import { getMainData } from '../services/services'
 import Formatter from '../services/formatter'
 
 // ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
-import {RadialBarChart, RadialBar} from 'recharts'
+import {RadialBarChart, RadialBar, ResponsiveContainer} from 'recharts'
 
 function KPI(props) {
     const [userScore, setScore] = useState(0)
@@ -45,11 +45,13 @@ function KPI(props) {
 
     return (
         <div id="kpi" className="anaItem">
-            <RadialBarChart cx="50%" cy="50%" width={250} height={250} data={fullScore}
-            innerRadius={0} outerRadius={100} startAngle={90} endAngle={450} className="graphCenter">
-                <RadialBar minAngle={3} background clockwise={false} dataKey="score"
-                barSize={10} cornerRadius={50}/>
-            </RadialBarChart>
+            <ResponsiveContainer width="97%" height={250}>
+                <RadialBarChart cx="50%" cy="50%" data={fullScore}
+                innerRadius={0} outerRadius={100} startAngle={90} endAngle={450} className="graphCenter">
+                    <RadialBar minAngle={3} background clockwise={false} dataKey="score"
+                    barSize={10} cornerRadius={50}/>
+                </RadialBarChart>
+            </ResponsiveContainer>
             <div className="kpiTitle">Score</div>
             <div className="kpiCenterText">
                 <span className="kpiCenterScore">{userScore * 100}%</span><br/>de votre<br/>objectif

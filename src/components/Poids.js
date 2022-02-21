@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { getPoidsData } from '../services/services'
 
 // ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
-import {BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts'
+import {BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts'
 
 // Picture for the legend of the chart, identical to every data
 import barchartLegend from '../images/barchartLegend.png'
@@ -65,19 +65,21 @@ function Poids(props) {
 
     return (
         <div id="poids" className="anaItem">
-            <BarChart width={805} height={320} data={poidsData} barGap={8} barSize={7}
-            margin={{top: 90, right: 0, bottom: 25, left: 33}} className="graphCenter">
-                <CartesianGrid strokeDasharray="2" vertical={false}/>
-                <XAxis dataKey="day" axisLine={false} padding={{left: -49, right: -49}}
-                tickFormatter={getDayNumber} tickLine={false} tickMargin={15}/>
-                <Tooltip content={customTooltip} offset={30}/>
-                <YAxis yAxisId="left" axisLine={false} domain={["dataMin - 2", "dataMax + 1"]} orientation="right"
-                tickCount={3} tickLine={false} tickMargin={25}/>
-                <YAxis yAxisId="right" axisLine={false} domain={["dataMin - 10", "dataMax + 10"]} mirror={true}
-                tickCount={0} tickLine={false}/>
-                <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" radius={[43, 43, 0, 0]}/>
-                <Bar yAxisId="right" dataKey="calories" fill="#E60000" radius={[43, 43, 0, 0]}/>
-            </BarChart>
+            <ResponsiveContainer width="96%" height={320}>
+                <BarChart data={poidsData} barGap={8} barSize={7}
+                margin={{top: 90, right: 0, bottom: 25, left: 33}} className="graphCenter">
+                    <CartesianGrid strokeDasharray="2" vertical={false}/>
+                    <XAxis dataKey="day" axisLine={false} padding={{left: -49, right: -49}}
+                    tickFormatter={getDayNumber} tickLine={false} tickMargin={15}/>
+                    <Tooltip content={customTooltip} offset={30}/>
+                    <YAxis yAxisId="left" axisLine={false} domain={["dataMin - 2", "dataMax + 1"]} orientation="right"
+                    tickCount={3} tickLine={false} tickMargin={25}/>
+                    <YAxis yAxisId="right" axisLine={false} domain={["dataMin - 10", "dataMax + 10"]} mirror={true}
+                    tickCount={0} tickLine={false}/>
+                    <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" radius={[43, 43, 0, 0]}/>
+                    <Bar yAxisId="right" dataKey="calories" fill="#E60000" radius={[43, 43, 0, 0]}/>
+                </BarChart>
+            </ResponsiveContainer>
             <div className="poidsTitleLegend">
                 <div>Activité quotidienne</div>
                 <div><img src={barchartLegend} alt="Légende du 1er graphique"/></div>
