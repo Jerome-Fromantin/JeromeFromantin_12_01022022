@@ -79,7 +79,7 @@ function RadarData(props) {
     return (
         <div id="radar" className="anaItem">
             <ResponsiveContainer width="97%" height={263}>
-                <RadarChart data={performanceDataReverse} margin={{top: 33, right: 33, bottom: 33, left: 33}}
+                <RadarChart data={performanceDataReverse} margin={{top: 35, right: 35, bottom: 35, left: 35}}
                 className="graphCenter">
                     <PolarGrid radialLines={false}/>
                     <PolarAngleAxis dataKey="kind" fontSize={12} tickFormatter={getTheme} tickLine={false} stroke="white"/>

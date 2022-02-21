@@ -10,9 +10,6 @@ import { getMainData } from '../services/services'
 // Access to a part of data, mocked or not
 import Formatter from '../services/formatter'
 
-// Picture for a fake sentence, which can be replaced by a real text component now in comment
-import texte from '../images/TestText.png'
-
 function Header(props) {
     const [userInfos, setUserInfos] = useState({})
 
@@ -33,8 +30,7 @@ function Header(props) {
     return (
         <header className="header">
             <h1 className="dashTitle">Bonjour <span className="userName">{userInfos.firstName}</span></h1>
-            {/*<p className="dashText">Félicitation ! Vous avez explosé vos objectifs hier</p>*/}
-            <img src={texte} alt="Phrase de félicitation"/>
+            <p className="dashText">Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </header>
     )
 }

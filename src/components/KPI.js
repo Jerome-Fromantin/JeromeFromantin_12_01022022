@@ -30,10 +30,9 @@ function KPI(props) {
         }
     }, [props.id])
 
-    // The first 8 fake scores are used to display a full white circle in the center of the chart.
+    // The first 7 fake scores are used to display a full white circle in the center of the chart.
     // They are also necessary as a comparison to the real data in "userScore", to display it correctly.
     const fullScore = [
-        {score: 1, fill: "white"},
         {score: 1, fill: "white"},
         {score: 1, fill: "white"},
         {score: 1, fill: "white"},
@@ -47,7 +46,7 @@ function KPI(props) {
         <div id="kpi" className="anaItem">
             <ResponsiveContainer width="97%" height={250}>
                 <RadialBarChart cx="50%" cy="50%" data={fullScore}
-                innerRadius={0} outerRadius={100} startAngle={90} endAngle={450} className="graphCenter">
+                innerRadius={0} outerRadius={90} startAngle={90} endAngle={450} className="graphCenter">
                     <RadialBar minAngle={3} background clockwise={false} dataKey="score"
                     barSize={10} cornerRadius={50}/>
                 </RadialBarChart>

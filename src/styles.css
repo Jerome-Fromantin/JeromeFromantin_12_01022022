@@ -108,7 +108,7 @@
 
 /* Component "Header" */
 .header {
-    width: 396px;
+    width: 430px;
     height: 89px
 }
 
@@ -159,8 +159,8 @@
 #objectifs, #radar, #kpi {
     display: flex;
     align-items: center;
-    width: 258px;
-    min-width: 33%;
+    width: 33%;
+    max-width: 258px;
     height: 263px
 }
 
