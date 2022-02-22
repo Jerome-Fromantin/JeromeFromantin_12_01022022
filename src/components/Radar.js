@@ -16,33 +16,31 @@ function RadarData(props) {
 
     // Use of "AbortController()" to prevent memory leaks
     useEffect(() => {
-        //let abortController = new AbortController()
+        let abortController = new AbortController()
         async function init() {
             const perfData = await getPerformanceData(props.id)
             setPerformanceData(perfData.data)
             setKinds(perfData.kind)
         }
         init()
-        /*return () => {
+        return () => {
             abortController.abort()
-        }*/
+        }
     }, [props.id])
 
     // This reverses the order of the data, to get it from last to first.
     const performanceDataReverse = [...performanceData].sort((a, b) => b.kind - a.kind)
 
     /**
-     * FUNCTION TO IMPROVE BECAUSE PROVOKING BUGS !
      * This function, when used with the following one, takes the strings in "kinds"
-     * and puts in capital the first letter of each string.
-     * @function capitalFirstLetter
-     * @param {string} str : The string to transform.
-     * @returns The same string with a capital letter.
+     * and returns them in French with a capital letter.
+     * @function kindsInFrench
+     * @returns The same string transformed.
      */
-    /*const capitalFirstLetter = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1)
-        //return str[0].toUpperCase() + str.slice(1)
-    }*/
+    const kindsInFrench = () => {
+        const kindFR = ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"]
+        return kindFR
+    }
 
     /**
      * This function gets the names of the data coming from the hook "useEffect()" in "setKinds()".
@@ -50,9 +48,8 @@ function RadarData(props) {
      * @returns 
      */
     const getTheme = (index) => {
-        /*const capKinds = capitalFirstLetter(kinds[index])
-        return capKinds*/
-        return kinds[index]
+        const kindsFR = kindsInFrench(kinds[index])
+        return kindsFR[index - 1]
     }
 
     /**
