@@ -16,9 +16,7 @@ Travail réalisé :
 - Accès aux données mockées comme aux données réelles.
 - Ajout de documentation anglaise sur tous les composants importants.
 - Création d'un fichier Readme "officiel" en anglais.
-
-Travail à faire :
-- Terminer l'amélioration en cours du graphique "Radar".
+- Amélioration du responsive.
 
 NOTE POUR MOI-MEME :
 Pour démarrer le backend, taper "npm run dev".
