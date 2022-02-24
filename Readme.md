@@ -43,7 +43,8 @@ git clone https://github.com/Jerome-Fromantin/JeromeFromantin_12_01022022.git
 
 The process just above will only display the elements of the page that are identical for every user.
 
-To access a user's data, you must add his id at the end of the url.
-2 ids are accessible here, "12" and "18" so the final urls will be "localhost:3001/12" or "localhost:3001/18".
+To access a user's data, you must add the sub-path "/profile/" and his id at the end of the url.
+2 ids are accessible here, "12" and "18".
+So the final urls will be "localhost:3001/profile/12" or "localhost:3001/profile/18".
 
 ***Enjoy the visit !***
