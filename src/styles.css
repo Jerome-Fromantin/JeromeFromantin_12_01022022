@@ -41,6 +41,11 @@
     justify-content: space-between
 }
 
+/* Page "Page404" */
+.page404 {
+    font-size: 24px
+}
+
 /* Component "HorizBar" */
 .horizBar {
     display: flex;

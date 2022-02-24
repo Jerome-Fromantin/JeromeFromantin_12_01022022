@@ -1,6 +1,6 @@
 import "../styles.css"
 import { useEffect, useState } from 'react'
-import {useParams} from "react-router-dom"
+import {useParams, useNavigate} from "react-router-dom"
 
 /* ACCESS TO DATA */
 // Access to mocked data in the file "src/services/data.js"
@@ -27,22 +27,35 @@ import glucIcon from "../images/gluc-icon.png"
 import lipiIcon from "../images/lipi-icon.png"
 
 function Profile(props) {
+    /**
+     * @type {{id: number}}
+     */
     const param = useParams()
+    const navigate = useNavigate()
     const [keyData, setKeyData] = useState({})
 
     // Use of "AbortController()" to prevent memory leaks
     useEffect(() => {
         let abortController = new AbortController()
+        // This function uses "try catch" to return the data when the back-end API is working
+        // or the 404 page when the back-end API isn't working or the user's id isn't correct.
         async function init() {
-            const mainData = await getMainData(param.id)
-            const formatter = new Formatter(mainData)
-            setKeyData(formatter.getKeyData())
+            try {
+                const mainData = await getMainData(param.id)
+                const formatter = new Formatter(mainData)
+                if (!mainData) {
+                    navigate("/page404")
+                }
+                else {setKeyData(formatter.getKeyData())}
+            } catch (error) {
+                navigate("/page404")
+            }
         }
         init()
         return () => {
             abortController.abort()
         }
-    }, [param.id])
+    }, [navigate, param.id])
 
     return (
         <div>
