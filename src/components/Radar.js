@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 /* ACCESS TO DATA */
 // Access to mocked data in the file "src/services/data.js"
@@ -10,6 +10,11 @@ import { getPerformanceData } from '../services/services'
 // ACCESS TO NECESSARY COMPONENTS FROM THE LIBRARY "RECHARTS"
 import {RadarChart, Radar, PolarGrid, PolarAngleAxis, Tooltip, ResponsiveContainer} from 'recharts'
 
+/**
+ * 
+ * @param {{id: number}} props 
+ * @returns {React.Component}
+ */
 function RadarData(props) {
     const [performanceData, setPerformanceData] = useState([])
     const [kinds, setKinds] = useState({})
