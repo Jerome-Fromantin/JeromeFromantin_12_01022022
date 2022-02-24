@@ -17,6 +17,6 @@ Travail réalisé :
 - Ajout de documentation anglaise sur tous les composants importants.
 - Création d'un fichier Readme "officiel" en anglais.
 - Amélioration du responsive.
+- Ajout d'une page 404 en cas d'erreurs.
 
-NOTE POUR MOI-MEME :
-Pour démarrer le backend, taper "npm run dev".
+Ce projet est désormais terminé mais peut éventuellement être amélioré.
