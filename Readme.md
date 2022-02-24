@@ -1,6 +1,6 @@
 # Installation of this project
 
-Last update : 22/02/2022 - 11:05 AM (French Time)
+Last update : 24/02/2022 - 15:05 PM (French Time)
 
 ## Prerequisites
 
